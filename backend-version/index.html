@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A quiet, personal shelf for the books you mean to remember.">
+  <title>Book Tracker — Your reading shelf</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f6f1e6'/%3E%3Crect x='6' y='5' width='20' height='22' fill='none' stroke='%23221d15' stroke-width='2.5'/%3E%3Cline x1='16' y1='5' x2='16' y2='27' stroke='%23221d15' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="site-shell">
+    <header class="site-nav">
+      <a class="brand" href="index.html" aria-label="Book Tracker home"><em>Book</em> Tracker <span>backend edition</span></a>
+      <nav class="site-nav__links" id="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="login.html">Log in</a>
+        <a class="nav-cta" href="signup.html">Start your shelf</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="landing-hero" aria-labelledby="hero-heading">
+        <div class="landing-hero__copy">
+          <p class="kicker">The backend edition &middot; A quiet shelf for your reading life</p>
+          <h1 id="hero-heading">Keep the books you mean to <em>remember.</em></h1>
+          <p class="landing-hero__lede">A personal reading journal for what comes next, what is underway, and what stays with you after the last page.</p>
+          <div class="hero-actions" id="hero-actions">
+            <a class="btn btn--link" href="signup.html">Make my shelf</a>
+            <a class="text-link" href="#how-it-works">See how it works <span aria-hidden="true">↘</span></a>
+          </div>
+          <p class="hero-note"><span aria-hidden="true">✦</span> Powered by Go, secure session cookies, and persistent account storage.</p>
+        </div>
+
+        <div class="shelf-preview" aria-label="A sample reading shelf">
+          <div class="shelf-preview__top"><span>INDEX / 001</span><span>YOUR NEXT CHAPTER</span></div>
+          <div class="shelf-preview__rule"></div>
+          <div class="shelf-row shelf-row--toread"><span class="shelf-row__number">01</span><span class="shelf-row__title">The Left Hand of Darkness</span><span class="shelf-row__status">To read</span></div>
+          <div class="shelf-row shelf-row--reading"><span class="shelf-row__number">02</span><span class="shelf-row__title">Invisible Cities</span><span class="shelf-row__status">Reading</span></div>
+          <div class="shelf-row shelf-row--finished"><span class="shelf-row__number">03</span><span class="shelf-row__title">A Wizard of Earthsea</span><span class="shelf-row__status">Finished</span></div>
+          <div class="shelf-preview__foot"><span>3 quiet stages</span><span>→</span></div>
+        </div>
+      </section>
+
+      <section class="ritual-section" id="how-it-works" aria-labelledby="ritual-heading">
+        <div class="section-heading"><p class="section-heading__eyebrow">The reading ritual</p><h2 id="ritual-heading">Simple enough to return to.</h2></div>
+        <div class="ritual-list">
+          <article class="ritual-row"><span class="ritual-row__marker ritual-row__marker--blue" aria-hidden="true"></span><span class="ritual-row__number">01</span><div><h3>Collect what is next.</h3><p>Keep the titles you are curious about in one considered list.</p></div><span class="ritual-row__aside">TO READ</span></article>
+          <article class="ritual-row"><span class="ritual-row__marker ritual-row__marker--ochre" aria-hidden="true"></span><span class="ritual-row__number">02</span><div><h3>Mark what is underway.</h3><p>Change a status as your attention moves from one story to the next.</p></div><span class="ritual-row__aside">READING</span></article>
+          <article class="ritual-row"><span class="ritual-row__marker ritual-row__marker--green" aria-hidden="true"></span><span class="ritual-row__number">03</span><div><h3>Keep the finished list close.</h3><p>Search your shelf by title or author whenever a memory calls.</p></div><span class="ritual-row__aside">FINISHED</span></article>
+        </div>
+      </section>
+
+      <section class="landing-note" aria-label="Backend edition features">
+        <span class="landing-note__mark" aria-hidden="true">✦</span>
+        <div><p class="section-heading__eyebrow">The fuller edition</p><h2>Your shelf belongs to your account.</h2><p>Sign up to get server-side validation, secure sessions, user-scoped books, and readable JSON storage for this learning project.</p></div>
+        <a class="text-link" href="signup.html">Create an account <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__brand">
+        <strong>Book Tracker</strong>
+        <span>Backend edition &middot; kept with intention</span>
+      </div>
+      <p class="site-footer__note">
+        Built with Go standard library backend, HTTP-only session cookies, and persistent storage.
+      </p>
+      <nav class="site-footer__links" aria-label="Footer navigation">
+        <a class="text-link" href="index.html">Home</a>
+        <a class="text-link" href="login.html">Log in</a>
+        <a class="text-link" href="signup.html">Sign up</a>
+        <a class="text-link" href="library.html">Library</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    // Session awareness on landing page
+    fetch("/api/auth/me")
+      .then(res => res.ok ? res.json() : null)
+      .then(user => {
+        if (!user || !user.email) return;
+        const nav = document.getElementById("nav-links");
+        if (nav) {
+          nav.innerHTML = `
+            <a class="nav-link" href="library.html">My library</a>
+            <span class="user-email">${user.email}</span>
+            <button class="nav-button" id="index-logout" type="button">Log out</button>
+          `;
+          document.getElementById("index-logout")?.addEventListener("click", async () => {
+            await fetch("/api/auth/logout", { method: "POST" });
+            window.location.reload();
+          });
+        }
+        const heroActions = document.getElementById("hero-actions");
+        if (heroActions) {
+          heroActions.innerHTML = `
+            <a class="btn btn--link" href="library.html">Open My Library</a>
+            <a class="text-link" href="#how-it-works">See how it works <span aria-hidden="true">↘</span></a>
+          `;
+        }
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

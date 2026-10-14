@@ -15,11 +15,38 @@ const storageWarning = document.getElementById("storage-warning");
 const searchInput = document.getElementById("search-input");
 const searchClear = document.getElementById("search-clear");
 const statsBox = document.getElementById("stats");
+const landing = document.getElementById("landing");
+const tracker = document.getElementById("tracker");
 
 const STORAGE_KEY = "book-tracker:books";
 
 // Live search state: the books array is never mutated by searching.
 let searchQuery = "";
+
+// ---- Landing ↔ tracker views ----
+
+function enterGuestMode() {
+  if (!landing || !tracker) return;
+  landing.hidden = true;
+  tracker.hidden = false;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  titleInput.focus();
+}
+
+function returnToLanding() {
+  if (!landing || !tracker) return;
+  tracker.hidden = true;
+  landing.hidden = false;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.querySelectorAll("[data-guest-enter]").forEach((button) => {
+  button.addEventListener("click", enterGuestMode);
+});
+
+document.querySelectorAll("[data-landing-return]").forEach((button) => {
+  button.addEventListener("click", returnToLanding);
+});
 
 // ---- Storage layer (reusable; safe against missing/corrupt data) ----
 
