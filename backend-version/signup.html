@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up — Book Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-body auth-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="site-shell">
+    <header class="site-nav">
+      <a class="brand" href="index.html" aria-label="Book Tracker home"><em>Book</em> Tracker <span>backend edition</span></a>
+      <a class="nav-link" href="login.html">Already have a shelf? Log in</a>
+    </header>
+
+    <main class="auth-layout" id="main-content">
+      <aside class="auth-aside"><p class="kicker">A new shelf begins</p><h1>Make room for the books ahead.</h1><p>Create an account and keep your reading life in one personal, searchable place.</p></aside>
+      <section class="auth-panel" aria-labelledby="auth-heading">
+        <p class="section-heading__eyebrow">Create your shelf</p>
+        <h2 id="auth-heading">Start with a clean page.</h2>
+        <form id="auth-form" data-auth-mode="signup" novalidate>
+          <div class="auth-field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error"><p class="field-error" id="email-error" role="alert" hidden></p></div>
+          <div class="auth-field"><label for="password">Password</label><div class="password-control"><input id="password" name="password" type="password" autocomplete="new-password" required aria-describedby="password-error password-help"><button class="password-toggle" type="button" data-password-target="password" aria-label="Show password">Show</button></div><p class="auth-help" id="password-help">At least 8 characters, with one letter and one number.</p><p class="field-error" id="password-error" role="alert" hidden></p></div>
+          <div class="auth-field"><label for="confirm-password">Confirm password</label><div class="password-control"><input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" required aria-describedby="confirm-password-error"><button class="password-toggle" type="button" data-password-target="confirm-password" aria-label="Show password">Show</button></div><p class="field-error" id="confirm-password-error" role="alert" hidden></p></div>
+          <ul class="password-requirements" id="password-requirements" aria-label="Password requirements"><li data-requirement="length">○ 8 or more characters</li><li data-requirement="letter">○ At least one letter</li><li data-requirement="number">○ At least one number</li></ul>
+          <p class="auth-message" id="auth-message" role="alert" hidden></p>
+          <button class="btn auth-submit" type="submit">Create my shelf</button>
+        </form>
+        <p class="auth-switch">Already have a shelf? <a href="login.html">Sign in</a>.</p>
+        <p class="auth-footnote">This learning edition keeps users and books in readable JSON files so the stored values stay visible.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>Book Tracker &middot; a quieter reading journal</span><span>Est. 2026</span></footer>
+  </div>
+  <script src="auth.js" defer></script>
+</body>
+</html>

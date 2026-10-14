@@ -1,0 +1,50 @@
+[
+  {
+    "id": "adc12e21-7d99-46d2-9967-2e5fb197543b",
+    "ownerId": "491fe81b-dbcb-4f2d-9ff5-050fb3b62434",
+    "title": "bleach",
+    "author": "kubo",
+    "status": "Finished",
+    "createdAt": 1792002203176
+  },
+  {
+    "id": "ed1e81e1-f899-4a60-93ee-9360d525470f",
+    "ownerId": "b869309d-176a-4692-93b5-5f158cd3a7ef",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "status": "Finished",
+    "createdAt": 1792002170011
+  },
+  {
+    "id": "8ae4fad7-c724-4776-a29e-06c10ba99d39",
+    "ownerId": "b869309d-176a-4692-93b5-5f158cd3a7ef",
+    "title": "Aadujeevitham",
+    "author": "Benyamin",
+    "status": "To Read",
+    "createdAt": 1792002151651
+  },
+  {
+    "id": "6d2258d8-2baf-4627-99f3-cc22de297a7c",
+    "ownerId": "b869309d-176a-4692-93b5-5f158cd3a7ef",
+    "title": "bleach",
+    "author": "kubo",
+    "status": "Finished",
+    "createdAt": 1792002105769
+  },
+  {
+    "id": "cec7e19a-b30e-4f6c-984e-6bd48cdce3c1",
+    "ownerId": "b869309d-176a-4692-93b5-5f158cd3a7ef",
+    "title": "one piece",
+    "author": "oda",
+    "status": "Reading",
+    "createdAt": 1792000255122
+  },
+  {
+    "id": "6fb1cb10-46b2-4e74-81a5-c9b369f502ee",
+    "ownerId": "b869309d-176a-4692-93b5-5f158cd3a7ef",
+    "title": "moby-dick",
+    "author": "moby",
+    "status": "To Read",
+    "createdAt": 1792000244756
+  }
+]

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Library — Book Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f6f1e6'/%3E%3Crect x='6' y='5' width='20' height='22' fill='none' stroke='%23221d15' stroke-width='2.5'/%3E%3Cline x1='16' y1='5' x2='16' y2='27' stroke='%23221d15' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-body">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="page">
+
+    <header class="site-nav">
+      <a class="brand" href="index.html" aria-label="Book Tracker home"><em>Book</em> Tracker <span>backend edition</span></a>
+      <nav class="site-nav__links" aria-label="Account navigation">
+        <a class="nav-link nav-link--active" href="library.html" aria-current="page">My library</a>
+        <span class="user-email" id="user-email"></span>
+        <button class="nav-button" id="logout-button" type="button">Log out</button>
+      </nav>
+    </header>
+
+    <header class="masthead">
+      <p class="kicker">Your reading journal &middot; A quiet shelf for your reading life</p>
+      <h1 class="masthead__title"><em>Book</em>&nbsp;Tracker</h1>
+    </header>
+
+    <main id="main-content">
+
+      <section class="panel" aria-labelledby="add-heading">
+        <h2 class="panel__label" id="add-heading">Add a Book</h2>
+        <form class="book-form" id="add-book-form" novalidate>
+          <div class="field">
+            <label for="book-title">Title</label>
+            <input type="text" id="book-title" name="title" placeholder="Moby-Dick" autocomplete="off" aria-describedby="title-error">
+            <p class="field-error" id="title-error" role="alert" hidden></p>
+          </div>
+          <div class="field">
+            <label for="book-author">Author</label>
+            <input type="text" id="book-author" name="author" placeholder="Herman Melville" autocomplete="off" aria-describedby="author-error">
+            <p class="field-error" id="author-error" role="alert" hidden></p>
+          </div>
+          <div class="field">
+            <label for="book-status">Status</label>
+            <div class="select-frame">
+              <select id="book-status" name="status">
+                <option value="To Read" selected>To Read</option>
+                <option value="Reading">Reading</option>
+                <option value="Finished">Finished</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn">Add Book</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="library-heading">
+        <div class="library__bar">
+          <h2 class="panel__label" id="library-heading">The Library</h2>
+          <div class="search">
+            <label for="search-input">Search</label>
+            <input type="search" id="search-input" placeholder="Title or author&hellip;" autocomplete="off">
+            <button type="button" class="search__clear" id="search-clear" hidden>Clear</button>
+          </div>
+        </div>
+        <div class="server-banner" id="storage-warning" role="status" hidden></div>
+        <p class="stats" id="stats" aria-live="polite"></p>
+        <ul class="book-list" id="book-list">
+          <li class="empty-state">
+            <p class="empty-state__line">Your shelf is empty.</p>
+            <p class="empty-state__quote">&ldquo;A room without books is like a body without a soul.&rdquo;</p>
+            <p class="empty-state__hint">Add your first book with the form above.</p>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer class="colophon">
+      <p>Book Tracker &middot; served by Go &middot; stored per account</p>
+    </footer>
+
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -2,8 +2,11 @@
 
 A simple, client-side web application for tracking your reading list. Built with plain HTML, CSS, and vanilla JavaScript — no frameworks, no build step, and no backend.
 
+> **Looking for more?** Check out [`backend-version/`](backend-version/) — a Go-powered edition of the same app with a few more features (user accounts, server-side validation, per-user shelves, and secure sessions) and a slightly improved overall experience. See its [README](backend-version/README.md) for details.
+
 ## Features
 
+- Landing page with guest access — try the tracker without creating an account via "Continue as guest"
 - Add books with title, author, and reading status (To Read, Reading, Finished)
 - See your books newest-first
 - Search books by title or author (case-insensitive, partial match)
@@ -30,6 +33,7 @@ book-tracker/
 ├── index.html      # Page structure and semantics
 ├── style.css       # All visual styling (responsive, accessible)
 ├── app.js          # Application logic: state, rendering, persistence
+├── backend-version/ # Go backend version with landing page, auth, and JSON persistence
 ├── logs.md         # Development log documenting the AI-assisted workflow
 └── README.md       # This file
 ```
@@ -118,6 +122,14 @@ The application has been validated with the following end-to‑end checks using 
 - Invalid or corrupted `localStorage` data shows a warning without crashing
 - Mobile layout (390px width) and keyboard accessibility (tab order, focus visible)
 - Edge cases: XSS payloads rendered as inert text, identical titles distinguished by UUID, deletion/status change works while a search is active
+
+## Go Backend Version
+
+The [`backend-version`](backend-version) folder is the fuller edition of this project. It adds a landing page, Login and Sign up links in the top-right navigation, `login.html`, `signup.html`, authenticated sessions, server-side validation, per-user book ownership, and a Go `cmd/` + `internal/` architecture.
+
+It stores books in `backend-version/books.json` and users in `backend-version/users.json` so the stored values are visible and easy to inspect as plain text. JSON is intentionally used for demonstration and learning, not as a production database. Run it from that folder with `go run ./cmd/book-tracker`, then visit `http://localhost:8080`. See [`backend-version/README.md`](backend-version/README.md) for the architecture, routes, validation rules, and JSON shapes.
+
+The original [`index.html`](index.html) also links to this more feature-rich backend edition.
 
 ## Known Limitations
 

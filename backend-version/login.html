@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in — Book Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-body auth-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="site-shell">
+    <header class="site-nav">
+      <a class="brand" href="index.html" aria-label="Book Tracker home"><em>Book</em> Tracker <span>backend edition</span></a>
+      <a class="nav-link" href="index.html">Back to home</a>
+    </header>
+
+    <main class="auth-layout" id="main-content">
+      <aside class="auth-aside"><p class="kicker">Returning reader</p><h1>Welcome back to your shelf.</h1><p>Your next chapter is waiting exactly where you left it.</p></aside>
+      <section class="auth-panel" aria-labelledby="auth-heading">
+        <p class="section-heading__eyebrow">Sign in</p>
+        <h2 id="auth-heading">Open your library.</h2>
+        <form id="auth-form" data-auth-mode="login" novalidate>
+          <div class="auth-field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error"><p class="field-error" id="email-error" role="alert" hidden></p></div>
+          <div class="auth-field"><label for="password">Password</label><div class="password-control"><input id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="password-error"><button class="password-toggle" type="button" data-password-target="password" aria-label="Show password">Show</button></div><p class="field-error" id="password-error" role="alert" hidden></p></div>
+          <p class="auth-message" id="auth-message" role="alert" hidden></p>
+          <button class="btn auth-submit" type="submit">Sign in</button>
+        </form>
+        <p class="auth-switch">New here? <a href="signup.html">Create an account</a>.</p>
+        <p class="auth-footnote">Your session is kept in an HTTP-only browser cookie. The Go backend never stores your password in plain text.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>Book Tracker &middot; a quieter reading journal</span><span>Est. 2026</span></footer>
+  </div>
+  <script src="auth.js" defer></script>
+</body>
+</html>

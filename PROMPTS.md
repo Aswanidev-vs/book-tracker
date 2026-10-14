@@ -3,6 +3,7 @@
 I want to build a Book Tracker web application using plain HTML, CSS, and vanilla JavaScript.
 
 The application should allow users to:
+- Add a landing page and add option to continue as guest
 - Add books with a title, author, and reading status.
 - Display books with the newest additions first.
 - Search books by title or author.
