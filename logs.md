@@ -36,7 +36,11 @@
 - Inspected handling of spaces‑only inputs, very long strings, XSS‑like input, invalid status values in storage, corrupted localStorage JSON, identical titles with different IDs, delete/search/status change while a search is active. All behaved correctly; no fixes needed.
 
 **Prompt 13 – Reproduce and fix a bug**  
-- No user‑reported bug was supplied; exercised the edge cases above and found no defects requiring fixes.
+- A real bug was reported after persistence was introduced: after adding a book, changing its status, and refreshing, the status went back to its old value.  
+- Repro: add a book → change status → refresh → status is restored to the pre-change value.  
+- Root cause: the status mutation updated the in-memory book object and re-rendered, but the updated collection was not being persisted before refresh.  
+- Fix: the reusable `saveBooks()` call is wired into `updateBookStatus()` so every status change is saved immediately after the object changes.  
+- Manual verification: change a status to “Reading” or “Finished”, refresh the page, and confirm the status remains.
 
 **Prompt 14 – Final regression test**  
 - Verified that all features from Prompts 1‑10 remain usable after the above checks.
